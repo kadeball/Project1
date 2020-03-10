@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Nav from './components/Nav';
-import Wrapper from "./components/Wrapper";
+import Navbar from './components/Navbar';
+import WrapContent from "./components/WrapContent";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Clickfunko from "./components/Clickfunko";
 
@@ -17,17 +17,17 @@ function App() {
     }
 
   return (
-      <Router>
 
           <div className="App">
-              <Nav clickHandler={handleClick}/>
-              <Wrapper category={category}/>
-              <Switch>
-              <Route exact path="/" component={Wrapper}/>
+              <Router>
+                  <Navbar clickHandler={handleClick}/>
+                  <WrapContent category={category}/>
+                  <Switch>
+              <Route exact path="/" component={WrapContent}/>
               <Route path="/:name" component={Clickfunko}/>
               </Switch>
+              </Router>
           </div>
-      </Router>
 
 
 
